@@ -1,0 +1,31 @@
+//
+// Copyright (C) 2019 The LineageOS Project
+// Copyright (C) by me :)
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_binary {
+    relative_install_path: "hw",
+    vendor: true,
+    defaults: ["hidl_defaults"],
+    name: "vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.meizu_m1882",
+    vintf_fragments: ["vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.meizu_m1882.xml"],
+    init_rc: ["vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.meizu_m1882.rc"],
+    srcs: [
+        "service.cpp",
+        "FingerprintInscreen.cpp",
+        "StellerClientCallback.cpp",
+    ],
+    shared_libs: [
+        "libbase",
+        "libhardware",
+        "libhidlbase",
+        "libhidltransport",
+        "liblog",
+        "libhwbinder",
+        "libutils",
+        "libcutils",
+        "vendor.lineage.biometrics.fingerprint.inscreen@1.0",
+        "vendor.synaptics.fingerprint.interfaces.extensions@1.0",
+    ],
+}
