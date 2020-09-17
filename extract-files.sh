@@ -20,7 +20,7 @@ MAIN_ROOT="${MY_DIR}/../../.."
 
 #common
 
-HELPER="${MAIN_ROOT}/vendor/lineage/build/tools/extract_utils.sh"
+HELPER="${MAIN_ROOT}/vendor/rr/build/tools/extract_utils.sh"
 if [ ! -f "${HELPER}" ]; then
     echo "Unable to find helper script at ${HELPER}"
     exit 1

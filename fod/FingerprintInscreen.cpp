@@ -34,7 +34,7 @@ namespace lineage {
 namespace biometrics {
 namespace fingerprint {
 namespace inscreen {
-namespace V1_0 {
+namespace V1_1 {
 namespace implementation {
 
 /*
@@ -146,7 +146,7 @@ void FingerprintInscreen::notifyHal(int32_t status, int32_t data) {
 }
 
 }  // namespace implementation
-}  // namespace V1_0
+}  // namespace V1_1
 }  // namespace inscreen
 }  // namespace fingerprint
 }  // namespace biometrics
