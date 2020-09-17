@@ -7,9 +7,9 @@
 
 set -e
 
-export DEVICE=m1882
-export VENDOR=meizu
-export DEVICE_BRINGUP_YEAR=2020
+DEVICE=m1882
+VENDOR=meizu
+
 "./../../${VENDOR}/${DEVICE}/setup-makefiles.sh" "$@"
 
 #common
