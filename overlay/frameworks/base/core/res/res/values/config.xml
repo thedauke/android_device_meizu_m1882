@@ -129,20 +129,6 @@
     <!-- Is the device capable of hot swapping an ICC Card -->
     <bool name="config_hotswapCapable">true</bool>
 
-    <!-- Set to true if the wifi display supports compositing content stored
-         in gralloc protected buffers.  For this to be true, there must exist
-         a protected hardware path for surface flinger to composite and send
-         protected buffers to the wifi display video encoder.
-
-         If this flag is false, we advise applications not to use protected
-         buffers (if possible) when presenting content to a wifi display because
-         the content may be blanked.
-
-         This flag controls whether the {@link Display#FLAG_SUPPORTS_PROTECTED_BUFFERS}
-         flag is set for wifi displays.
-    -->
-    <bool name="config_wifiDisplaySupportsProtectedBuffers">true</bool>
-
     <!-- Flag indicating whether the we should enable the automatic brightness in Settings.
          Software implementation will be used if config_hardware_auto_brightness_available is not set -->
     <bool name="config_automatic_brightness_available">true</bool>
@@ -151,49 +137,64 @@
     <bool translatable="false" name="config_wifi_batched_scan_supported">true</bool>
 
     <!-- Array of light sensor LUX values to define our levels for auto backlight brightness support.
-         The N entries of this array define N + 1 control points as follows:
-         (1-based arrays)
-
-         Point 1:            (0, value[1]):             lux <= 0
-         Point 2:     (level[1], value[2]):  0        < lux <= level[1]
-         Point 3:     (level[2], value[3]):  level[2] < lux <= level[3]
+         The N entries of this array define N  1 zones as follows:
+         Zone 0:        0 <= LUX < array[0]
+         Zone 1:        array[0] <= LUX < array[1]
          ...
-         Point N+1: (level[N], value[N+1]):  level[N] < lux
-
-         The control points must be strictly increasing.  Each control point
-         corresponds to an entry in the brightness backlight values arrays.
-         For example, if LUX == level[1] (first element of the levels array)
-         then the brightness will be determined by value[2] (second element
-         of the brightness values array).
-
-         Spline interpolation is used to determine the auto-brightness
-         backlight values for LUX levels between these control points.
-
+         Zone N:        array[N - 1] <= LUX < array[N]
+         Zone N + 1     array[N] <= LUX < infinity
          Must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLevels">
-        <item>10</item>
-        <item>30</item>
+        <item>3</item>
+        <item>8</item>
+        <item>15</item>
+        <item>25</item>
+        <item>35</item>
+        <item>45</item>
         <item>60</item>
+        <item>80</item>
         <item>100</item>
-        <item>150</item>
-        <item>210</item>
-        <item>255</item>
+        <item>125</item>
+        <item>155</item>
+        <item>170</item>
+        <item>200</item>
+        <item>225</item>
+        <item>285</item>
+        <item>340</item>
+        <item>425</item>
+        <item>500</item>
+        <item>1000</item>
+        <item>2000</item>
+        <item>3000</item>
     </integer-array>
 
     <!-- Array of output values for LCD backlight corresponding to the LUX values
          in the config_autoBrightnessLevels array.  This array should have size one greater
          than the size of the config_autoBrightnessLevels array.
-         The brightness values must be between 0 and 255 and be non-decreasing.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>10</item>
-        <item>20</item>
-        <item>40</item>
-        <item>70</item>
-        <item>110</item>
-        <item>160</item>
-        <item>200</item>
-        <item>255</item>
+        <item>5</item>   <!-- 0-3 -->
+        <item>11</item>   <!-- 3-8 -->
+        <item>16</item>   <!-- 8-15 -->
+        <item>27</item>   <!-- 15-25 -->
+        <item>37</item>   <!-- 25-35 -->
+        <item>47</item>   <!-- 35-45 -->
+        <item>59</item>   <!-- 45-60 -->
+        <item>71</item>   <!-- 60-80 -->
+        <item>85</item>   <!-- 80-100 -->
+        <item>102</item>   <!-- 100-125 -->
+        <item>120</item>   <!-- 125-155 -->
+        <item>150</item>   <!-- 155-170 -->
+        <item>175</item>   <!-- 170-200 -->
+        <item>205</item>   <!-- 200-225 -->
+        <item>255</item>   <!-- 225-285 -->
+        <item>310</item>   <!-- 285-340 -->
+        <item>370</item>   <!-- 340-425 -->
+        <item>495</item>   <!-- 425-500 -->
+        <item>590</item>   <!-- 500-1000 -->
+        <item>700</item>   <!-- 1000-2000 -->
+        <item>850</item>  <!-- 2000-3000 -->
+        <item>1023</item>  <!-- 3000+ -->
     </integer-array>
 
     <!-- MMS user agent string -->
@@ -268,15 +269,70 @@
     <!-- Boolean indicating if current platform supports HFP inband ringing -->
     <bool name="config_bluetooth_hfp_inband_ringing_support">true</bool>
 
+    <!-- Whether the device supports Smart Pixels -->
+    <bool name="config_supportSmartPixels">true</bool>
 
+    <!-- Whether device has physical tri state switch -->
+    <bool name="config_hasAlertSlider">false</bool>
 
+    <!-- Enable face auth when swiping security view
+      for popup cameras-->
+    <bool name="config_faceAuthOnSecurityView">false</bool>
 
-<!--
-overlay product
+    <!-- Whether device has warp charging support -->
+    <bool name="config_hasWarpCharger">false</bool>
 
--->
+    <!-- Whether device has Dash charging support -->
+    <bool name="config_hasDashCharger">false</bool>
 
+    <!-- Whether device has VOOC charging support -->
+    <bool name="config_hasVoocCharger">false</bool>
 
+    <!-- Path to fast charging status file to detect whether an oem fast charger is active -->
+    <string name="config_oemFastChargerStatusPath" translatable="false">/sys/class/meizu/charger/fastcharging</string>
+    <!-- Expected value from fast charging status file  -->
+    <string name="config_oemFastChargerStatusValue" translatable="false">1</string>
+
+    <!-- Whether device supports variable refresh rate -->
+    <bool name="config_hasVariableRefreshRate">false</bool>
+    <!-- Default setting for refresh rate
+      0 = Auto
+      1 = 60HZ
+      2 = 90Hz -->
+    <integer name="config_defaultVariableRefreshRateSetting">0</integer>
+
+    <!--Systeminfo for quick settings header -->
+    <string name="config_sysCPUTemp">/sys/devices/virtual/thermal/thermal_zone5/temp</string>
+    <string name="config_sysBatteryTemp">/sys/class/meizu/charger/board_temp</string>
+    <string name="config_sysGPUFreq">/sys/kernel/gpu/gpu_clock</string>
+    <string name="config_sysGPULoad">/sys/kernel/gpu/gpu_busy</string>
+    <integer name="config_sysCPUTempMultiplier">0.001</integer>
+    <integer name="config_sysBatteryTempMultiplier">1</integer>
+
+    <!-- If Smart charging supported by kernel and device sepolicy -->
+    <bool name="config_smartChargingAvailable">true</bool>
+
+    <!-- Values for GPS configuration -->
+    <string-array translatable="false" name="config_gpsParameters">
+        <item>SUPL_HOST=supl.google.com</item>
+        <item>SUPL_PORT=7275</item>
+        <item>SUPL_VER=0x20000</item>
+        <item>SUPL_MODE=1</item>
+        <item>SUPL_ES=0</item>
+        <item>LPP_PROFILE=0</item>
+        <item>USE_EMERGENCY_PDN_FOR_EMERGENCY_SUPL=1</item>
+        <item>A_GLONASS_POS_PROTOCOL_SELECT=15</item>
+        <item>CAPABILITIES=0x37</item>
+        <item>GPS_LOCK=0</item>
+        <item>XTRA_SERVER_1=http://xtrapath1.izatcloud.net/xtra3grc.bin</item>
+        <item>XTRA_SERVER_2=http://xtrapath2.izatcloud.net/xtra3grc.bin</item>
+        <item>XTRA_SERVER_3=http://xtrapath3.izatcloud.net/xtra3grc.bin</item>
+    </string-array>
+
+    <!-- Remote server that can provide NTP responses. -->
+    <string translatable="false" name="config_ntpServer">1.android.pool.ntp.org</string>
+
+                         <!-- overlay product -->
 
     <!-- Enable overlay for all location components. -->
     <bool name="config_enableNetworkLocationOverlay" translatable="false">false</bool>
@@ -296,35 +352,31 @@ overlay product
     <!-- Flag specifying whether or not IMS will use the dynamic ImsResolver -->
     <bool name="config_dynamic_bind_ims">true</bool>
 
-
-<!--
-    Overlay sdm845
--->
-
-   <!-- The duration (in milliseconds) for the outgoing sms authorization request to timeout.-->
-   <integer name="config_sms_authorization_timeout_ms">15000</integer>
-   <!-- Enable SMS authorization support -->
-   <bool name="config_sms_authorization_enabled">true</bool>
-   <!-- List of regexpressions describing the interface (if any) that represent tetherable
-          Wifi interfaces.  If the device doesn't want to support tethering over Wifi this
-          should be empty.  An example would be "softap.*" -->
-   <string-array translatable="false" name="config_tether_wifi_regexs">
-       <item>"softap0"</item>
-       <item>"wigig0"</item>
-       <item>"wifi_br0"</item>
-   </string-array>
-
-    <!-- dual sap mode is supported on this device. -->
-    <bool name="config_wifi_dual_sap_mode_enabled">true</bool>
-
-    <!-- list of interface names for SoftAp in Dual mode. -->
-    <string-array translatable="false" name="config_wifi_dual_sap_interfaces">
-        <item>"softap1"</item>
-        <item>"softap2"</item>
+    <!-- The duration (in milliseconds) for the outgoing sms authorization request to timeout.-->
+    <integer name="config_sms_authorization_timeout_ms">15000</integer>
+    <!-- Enable SMS authorization support -->
+    <bool name="config_sms_authorization_enabled">true</bool>
+    <!-- List of regexpressions describing the interface (if any) that represent tetherable
+           Wifi interfaces.  If the device doesn't want to support tethering over Wifi this
+           should be empty.  An example would be "softap.*" -->
+    <string-array translatable="false" name="config_tether_wifi_regexs">
+        <item>"softap0"</item>
+        <item>"wigig0"</item>
+        <item>"wifi_br0"</item>
     </string-array>
-    <!-- Enable dual LTE capability support-->
-    <bool name="config_dual_LTE_capability">true</bool>
 
-   <!-- Device supports Sustained Performance Mode-->
-   <bool name="config_sustainedPerformanceModeSupported">true</bool>
+     <!-- dual sap mode is supported on this device. -->
+     <bool name="config_wifi_dual_sap_mode_enabled">true</bool>
+
+     <!-- list of interface names for SoftAp in Dual mode. -->
+     <string-array translatable="false" name="config_wifi_dual_sap_interfaces">
+         <item>"softap1"</item>
+         <item>"softap2"</item>
+     </string-array>
+     <!-- Enable dual LTE capability support-->
+     <bool name="config_dual_LTE_capability">true</bool>
+
+    <!-- Device supports Sustained Performance Mode-->
+    <bool name="config_sustainedPerformanceModeSupported">true</bool>
+
 </resources>

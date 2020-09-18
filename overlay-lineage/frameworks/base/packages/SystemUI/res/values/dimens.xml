@@ -26,5 +26,7 @@
 
     <!-- Margin on the right side of the system icon group on Keyguard. -->
     <dimen name="system_icons_keyguard_padding_end">46px</dimen>
-
+ 
+  <!-- the padding on the start and the end of the statusbar -->
+    <dimen name="status_bar_extra_padding">14dp</dimen>
 </resources>

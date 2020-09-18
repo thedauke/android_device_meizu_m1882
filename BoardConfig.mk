@@ -1,15 +1,16 @@
 #
-# Copyright (C) by me :)
 #
 # SPDX-License-Identifier: Apache-2.0
-#common
+#
 
 BOARD_VENDOR := meizu
+
 DEVICE_PATH := device/meizu/m1882
+
 TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 
-# inherit from the proprietary version
-#include vendor/meizu/m1882/BoardConfigVendor.mk
+# Build
+BUILD_BROKEN_DUP_RULES := true
 
 # Assertion
 TARGET_OTA_ASSERT_DEVICE := m1882,16th
@@ -20,12 +21,41 @@ TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := arm64-v8a
 TARGET_CPU_ABI2 :=
 TARGET_CPU_VARIANT := kryo385
+
 TARGET_2ND_ARCH := arm
 TARGET_2ND_ARCH_VARIANT := armv8-2a
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := kryo385
+
 TARGET_USES_64_BIT_BINDER := true
+
+# Bootloader
+TARGET_BOOTLOADER_BOARD_NAME := sdm845
+TARGET_NO_BOOTLOADER := true
+
+# Kernel
+BOARD_KERNEL_BASE := 0x00000000
+BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 earlycon=msm_geni_serial,0xA84000 androidboot.hardware=qcom androidboot.console=ttyMSM0 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 service_locator.enable=1 swiotlb=2048 androidboot.configfs=true androidboot.usbcontroller=a600000.dwc3
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+BOARD_KERNEL_PAGESIZE := 4096
+BOARD_KERNEL_TAGS_OFFSET := 0x00000100
+BOARD_RAMDISK_OFFSET := 0x01000000
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz-dtb
+BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
+BOARD_KERNEL_SEPARATED_DTBO := true
+BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
+
+
+TARGET_KERNEL_ARCH := arm64
+TARGET_KERNEL_HEADER_ARCH := arm64
+TARGET_KERNEL_HEADER_SOURCE := kernel/meizu/sdm845
+TARGET_KERNEL_CONFIG := sdm845-perf_defconfig
+
+# Platform
+BOARD_USES_QCOM_HARDWARE := true
+TARGET_BOARD_PLATFORM := sdm845
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno630
 
 # Audio
 USE_DEVICE_SPECIFIC_AUDIO := true
@@ -34,19 +64,15 @@ USE_XML_AUDIO_POLICY_CONF := 1
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth/include
 
-# Build
-BUILD_BROKEN_DUP_RULES := true
-
-# Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := sdm845
-TARGET_NO_BOOTLOADER := true
-
 # Camera
 USE_DEVICE_SPECIFIC_CAMERA := true
 USE_CAMERA_STUB := true
 BOARD_QTI_CAMERA_32BIT_ONLY := true
 TARGET_LD_SHIM_LIBS += /vendor/lib/libmms_hal_vstab.so|/vendor/lib/libshim_camera.so
 TARGET_LD_SHIM_LIBS += /vendor/lib/libmms_warper_vstab.so|/vendor/lib/libshim_camera.so
+
+# Charger
+WITH_LINEAGE_CHARGER := false
 
 # Display
 TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
@@ -63,33 +89,6 @@ NUM_FRAMEBUFFER_SURFACE_BUFFERS := 2
 
 # DRM
 TARGET_ENABLE_MEDIADRM_64 := true
-
-# Charger
-WITH_LINEAGE_CHARGER := false
-
-# Kernel & HAX: Remove ASAP
-BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
-BOARD_KERNEL_BASE := 0x00000000
-BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 earlycon=msm_geni_serial,0xA84000 androidboot.hardware=qcom androidboot.console=ttyMSM0 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 service_locator.enable=1 swiotlb=2048 androidboot.configfs=true androidboot.usbcontroller=a600000.dwc3
-BOARD_KERNEL_PAGESIZE := 4096
-BOARD_KERNEL_TAGS_OFFSET := 0x00000100
-BOARD_RAMDISK_OFFSET := 0x01000000
-BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
-BOARD_KERNEL_SEPARATED_DTBO := true
-BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz-dtb
-TARGET_KERNEL_ARCH := arm64
-TARGET_KERNEL_HEADER_ARCH := arm64
-TARGET_KERNEL_HEADER_SOURCE := kernel/meizu/sdm845
-TARGET_KERNEL_CONFIG := sdm845-perf_defconfig
-
-#No vendor
-# BUILD_WITHOUT_VENDOR := true
-
-# Platform
-BOARD_USES_QCOM_HARDWARE := true
-TARGET_BOARD_PLATFORM := sdm845
-TARGET_BOARD_PLATFORM_GPU := qcom-adreno630
 
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
@@ -136,9 +135,9 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USES_MKE2FS := true
 
 # Releasetools
-TARGET_BOARD_INFO_FILE := $(DEVICE_PATH)/board-info.txt
 TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_meizu_m1882
 TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
+TARGET_BOARD_INFO_FILE := $(DEVICE_PATH)/board-info.txt
 
 # Root
 BOARD_ROOT_EXTRA_FOLDERS := \
@@ -152,10 +151,9 @@ OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 
 # RIL
 ENABLE_VENDOR_RIL_SERVICE := true
-TARGET_RIL_VARIANT := caf
 
 # Security patch level
-VENDOR_SECURITY_PATCH := 2019-11-01
+VENDOR_SECURITY_PATCH := 2020-03-01
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
@@ -196,3 +194,9 @@ TARGET_USES_NQ_NFC := false
 
 # FM
 BOARD_HAVE_QCOM_FM := false
+
+# SurfaceFlinger
+TARGET_USES_QCOM_UM_4_9_FAMILY := true
+
+# inherit from the proprietary version
+-include vendor/meizu/m1882/BoardConfigVendor.mk

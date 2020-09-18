@@ -36,3 +36,13 @@ PRODUCT_PRODUCT_PROPERTIES += \
 PRODUCT_PRODUCT_PROPERTIES += \
     fod.dimming.min=40 \
     fod.dimming.max=255
+
+# Bootanimation Resolution
+TARGET_BOOT_ANIMATION_RES := 1080
+
+#GAPPS
+TARGET_GAPPS_ARCH := arm64
+
+# RR Stuffs
+TARGET_FACE_UNLOCK_SUPPORTED := true
+TARGET_HAS_FOD := true
