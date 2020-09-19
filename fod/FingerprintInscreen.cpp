@@ -101,7 +101,7 @@ Return<void> FingerprintInscreen::onPress() {
         LOG(INFO) << "onPress: HBM already enabled!";
     }
     std::thread([this]() {
-        std::this_thread::sleep_for(std::chrono::milliseconds(170));
+        std::this_thread::sleep_for(std::chrono::milliseconds(150));
         if (mFingerPressed) {
             notifyHal(NOTIFY_FINGER_DETECTED, 0);
         }
