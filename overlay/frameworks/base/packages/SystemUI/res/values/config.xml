@@ -30,6 +30,10 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 -->
 <resources>
+
+    <!-- FPSInfoService Fps file path -->
+    <string name="config_fpsInfoSysNode" translatable="false">/sys/class/drm/sde-crtc-0/measured_fps</string>
+
     <!-- Enable doze mode -->
     <bool name="doze_display_state_supported">true</bool>
 </resources>

@@ -306,11 +306,16 @@
     <string name="config_sysBatteryTemp">/sys/class/meizu/charger/board_temp</string>
     <string name="config_sysGPUFreq">/sys/kernel/gpu/gpu_clock</string>
     <string name="config_sysGPULoad">/sys/kernel/gpu/gpu_busy</string>
-    <integer name="config_sysCPUTempMultiplier">0.001</integer>
+    <integer name="config_sysCPUTempMultiplier">0</integer>
     <integer name="config_sysBatteryTempMultiplier">1</integer>
 
-    <!-- If Smart charging supported by kernel and device sepolicy -->
+    <!-- Smart charging -->
     <bool name="config_smartChargingAvailable">true</bool>
+    <integer name="config_smartChargingBatteryLevel">90</integer>
+    <integer name="config_smartChargingBatteryResumeLevel">15</integer>
+    <string name="config_SmartChargingSysfsNode" translatable="false">/sys/class/power_supply/battery/input_suspend</string>
+    <string name="config_SmartChargingSuspendValue" translatable="false">1</string>
+    <string name="config_SmartChargingResumeValue" translatable="false">0</string>
 
     <!-- Values for GPS configuration -->
     <string-array translatable="false" name="config_gpsParameters">
