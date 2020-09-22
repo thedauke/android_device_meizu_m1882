@@ -4,7 +4,7 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/rr_m1882.mk
+    $(LOCAL_DIR)/aosp_m1882.mk
 
 COMMON_LUNCH_CHOICES := \
-    rr_m1882-userdebug
+    aosp_m1882-userdebug
