@@ -823,10 +823,6 @@ vendor/lib64/libqmi_csi.so
 vendor/lib64/libqmi_encdec.so
 vendor/lib64/libsmemlog.so
 
-# QMI - from beryllium - Xiaomi/beryllium/beryllium:10/QKQ1.190828.002/V11.0.9.0.QEJMIXM:user/release-keys
-vendor/lib/libqmi_cci.so
-vendor/lib64/libqmi_cci.so
-
 # Sensor
 etc/sensors/proto/descriptor.proto
 etc/sensors/proto/nanopb.proto
