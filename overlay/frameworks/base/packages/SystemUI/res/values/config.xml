@@ -54,11 +54,11 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     <!-- Enable face auth only when swiping security view -->
     <bool name="config_faceAuthOnlyOnSecurityView">true</bool>
 
-    <!-- Color of the FOD view -->
-    <color name="config_fodColor">#00ffff</color>
+    <!-- Color of the FOD view default-#00ffff RG-#ffff00,BG-#00ffff -->
+    <color name="config_fodColor">#ffff00</color>
 
-    <!-- Allow device to use unordinary cutout overlays
+    <!-- Allow device to use unordinary cutout overlays-->
     <bool name="config_customCutout">true</bool>
- -->
+ 
 
 </resources>
