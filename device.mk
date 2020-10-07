@@ -294,4 +294,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
 
+# Doze & AOD
+PRODUCT_PACKAGES += \
+     MeizuParts
 
+BUILD_RR_WALLPAPERS:= true
+TARGET_HAS_FOD := true
+EXTRA_FOD_ANIMATIONS := true
