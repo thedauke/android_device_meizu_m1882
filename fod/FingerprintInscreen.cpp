@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2019 The LineageOS Project
+ * Copyright (C) 2020 The MoKee Open Source Project
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -101,7 +102,7 @@ Return<void> FingerprintInscreen::onPress() {
         LOG(INFO) << "onPress: HBM already enabled!";
     }
     std::thread([this]() {
-        std::this_thread::sleep_for(std::chrono::milliseconds(150));
+        std::this_thread::sleep_for(std::chrono::milliseconds(170));
         if (mFingerPressed) {
             notifyHal(NOTIFY_FINGER_DETECTED, 0);
         }
@@ -122,7 +123,7 @@ Return<void> FingerprintInscreen::onShowFODView() {
 
 Return<void> FingerprintInscreen::onHideFODView() {
     std::thread([this]() {
-        std::this_thread::sleep_for(std::chrono::milliseconds(38));
+        std::this_thread::sleep_for(std::chrono::milliseconds(47));
         mHBMCheckOff = get (HBM_ENABLE_PATH, 0);
         if (mHBMCheckOff != mHBM) {
             LOG(INFO) << "onHideFODView: restoring HBM!";
