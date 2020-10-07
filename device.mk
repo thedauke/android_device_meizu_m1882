@@ -289,10 +289,12 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
 
 # Doze
-PRODUCT_PACKAGES += \
-    MeizuDoze
+#PRODUCT_PACKAGES += \
+     MeizuParts
+#    MeizuDoze
 
 #PE stuff
+
 # Wallpapers
 #PRODUCT_PACKAGES += \
 #    PixelLiveWallpaperPrebuilt
