@@ -55,7 +55,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     <bool name="config_faceAuthOnlyOnSecurityView">true</bool>
 
     <!-- Color of the FOD view default-#00ffff RG-#ffff00,BG-#00ffff -->
-    <color name="config_fodColor">#ffff00</color>
+    <color name="config_fodColor">#00ffff</color>
 
     <!-- Allow device to use unordinary cutout overlays-->
     <bool name="config_customCutout">true</bool>
