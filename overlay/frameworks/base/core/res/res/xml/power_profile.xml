@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <device name="Android">
+    <item name="ambient.on">0.1</item>
     <item name="none">0</item>
     <item name="screen.on">60</item>
     <item name="screen.full">320</item>
