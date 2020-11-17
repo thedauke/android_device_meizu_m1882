@@ -374,24 +374,24 @@
 
                           <!-- doze & AOD -->
 
-    <!-- Screen brightness when dozing. -->
+    <!-- Screen brightness when dozing. 
     <integer name="config_screenBrightnessDoze">50</integer>   
-    
-    <!-- Enable doze mode -->
+-->    
+    <!-- Enable doze mode 
     <string name="config_dozeComponent">com.android.systemui/com.android.systemui.doze.DozeService</string>
-  
+-->
     <!-- If true, the doze component is not started until after the screen has been
          turned off and the screen off animation has been performed. -->
-    <bool name="config_dozeAfterScreenOffByDefault">true</bool>
+    <bool name="config_dozeAfterScreenOffByDefault">false</bool>
 
     <!-- Control whether the always on display mode is available. This should only be enabled on
          devices where the display has been tuned to be power efficient in DOZE and/or DOZE_SUSPEND
          states. -->
-    <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
+    <bool name="config_dozeAlwaysOnDisplayAvailable">false</bool>
 
     <!-- Control whether the always on display mode is enabled by default. This value will be used
          during initialization when the setting is still null. -->
-    <bool name="config_dozeAlwaysOnEnabled">true</bool>
+    <bool name="config_dozeAlwaysOnEnabled">false</bool>
 
     <!-- Whether the display blanks itself when transitioning from a doze to a non-doze state 
     <bool name="config_displayBlanksAfterDoze">true</bool>
@@ -419,7 +419,7 @@
          to maximize power savings but not all devices support it.
          Refer to autosuspend.h for details.
     -->
-    <bool name="config_powerDecoupleAutoSuspendModeFromDisplay">false</bool>
+    <bool name="config_powerDecoupleAutoSuspendModeFromDisplay">true</bool>
 
     <!-- Power Management: Specifies whether to decouple the interactive state of the
          device from the display on/off state.
@@ -435,7 +435,7 @@
          to maximize power savings but not all devices support it.
          Refer to power.h for details.
     -->
-    <bool name="config_powerDecoupleInteractiveModeFromDisplay">fasle</bool>
+    <bool name="config_powerDecoupleInteractiveModeFromDisplay">true</bool>
 
     <!-- Whether device supports sensor based doze customizations -->
     <bool name="config_dozePulsePickup">true</bool>
