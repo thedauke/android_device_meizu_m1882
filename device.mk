@@ -301,7 +301,7 @@ PRODUCT_COPY_FILES += \
 #PE stuff
 
 # Wallpapers
-#PRODUCT_PACKAGES += \
-#    PixelLiveWallpaperPrebuilt
+PRODUCT_PACKAGES += \
+    PixelLiveWallpaperPrebuilt
 
 
