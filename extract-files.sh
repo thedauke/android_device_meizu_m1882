@@ -26,9 +26,9 @@ VENDOR=meizu
 MY_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
 
-RR_ROOT="${MY_DIR}/../../.."
+LINEAGE_ROOT="${MY_DIR}/../../.."
 
-HELPER="${RR_ROOT}/vendor/rr/build/tools/extract_utils.sh"
+HELPER="${LINEAGE_ROOT}/vendor/lineage/build/tools/extract_utils.sh"
 if [ ! -f "${HELPER}" ]; then
     echo "Unable to find helper script at ${HELPER}"
     exit 1
@@ -60,8 +60,24 @@ if [ -z "${SRC}" ]; then
     SRC=adb
 fi
 
+function blob_fixup() {
+    case "${1}" in
+    vendor/bin/hw/vendor.display.color@1.0-service | vendor/bin/hw/vendor.qti.hardware.qteeconnector@1.0-service | vendor/lib/vendor.display.postproc@1.0_vendor.so)
+        patchelf --remove-needed "android.hidl.base@1.0.so" "${2}"
+        ;;
+
+    vendor/lib64/hw/vendor.qti.hardware.sensorscalibrate@1.0-impl.so)
+        sed -i "s|libbase.so|libbv28.so|g" "${2}"
+        ;;
+
+    vendor/lib/hw/camera.qcom.so)
+        sed -i "s|libssc.so|libSSc.so|g" "${2}"
+        ;;
+    esac
+}
+
 # Initialize the helper
-setup_vendor "${DEVICE}" "${VENDOR}" "${RR_ROOT}" false "${CLEAN_VENDOR}"
+setup_vendor "${DEVICE}" "${VENDOR}" "${LINEAGE_ROOT}" false "${CLEAN_VENDOR}"
 
 extract "${MY_DIR}/proprietary-files.txt" "${SRC}" ${KANG} --section "${SECTION}"
 
