@@ -238,7 +238,7 @@ PRODUCT_COPY_FILES += \
 
 # Sensors
 PRODUCT_PACKAGES += \
-    android.hardware.sensors@1.0-service.m1882 \
+ #    android.hardware.sensors@1.0-service.m1882 \
     libsensorndkbridge
 
 # Telephony
