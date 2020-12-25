@@ -275,8 +275,8 @@ PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.3-service.meizu_m1882
 
 # VNDK-SP
-PRODUCT_TARGET_VNDK_VERSION := 29
-PRODUCT_EXTRA_VNDK_VERSIONS := $(PRODUCT_TARGET_VNDK_VERSION)
+PRODUCT_PACKAGES += \
+    vndk-sp
 
 # QTI SensorsCalibrate HAL load with VNDK 28 libbase
 PRODUCT_COPY_FILES += \
