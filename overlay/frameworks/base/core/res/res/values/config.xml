@@ -597,4 +597,7 @@
         <item>"/system/framework/oat/arm64/services.odex"</item>
     </string-array>
 
+    <!-- Should the pinner service pin the Home application? -->
+    <bool name="config_pinnerHomeApp">true</bool>
+
 </resources>
