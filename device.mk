@@ -276,7 +276,8 @@ PRODUCT_PACKAGES += \
 
 # VNDK-SP
 PRODUCT_PACKAGES += \
-    vndk-sp
+    vndk-sp \
+    com.android.vndk.current.on_vendor
 
 # QTI SensorsCalibrate HAL load with VNDK 28 libbase
 PRODUCT_COPY_FILES += \
