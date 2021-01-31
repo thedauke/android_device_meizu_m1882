@@ -641,6 +641,21 @@ vendor/lib64/vendor.display.color@1.0_vendor.so
 vendor/lib64/vendor.display.postproc@1.0_vendor.so
 vendor/lib64/vendor.qti.hardware.qdutils_disp@1.0_vendor.so
 
+# IOP
+vendor/bin/hw/vendor.qti.hardware.iop@2.0-service
+vendor/etc/init/vendor.qti.hardware.iop@2.0-service.rc
+vendor/lib/hw/vendor.qti.hardware.iop@2.0-impl.so
+vendor/lib/libqti-iopd-client.so
+vendor/lib/libqti-iopd.so
+vendor/lib/vendor.qti.hardware.iop@1.0_vendor.so
+vendor/lib/vendor.qti.hardware.iop@2.0_vendor.so
+vendor/lib64/hw/vendor.qti.hardware.iop@2.0-impl.so
+vendor/lib64/libqti-iopd-client.so
+vendor/lib64/libqti-iopd.so
+vendor/lib64/vendor.qti.hardware.iop@1.0_vendor.so
+vendor/lib64/vendor.qti.hardware.iop@2.0_vendor.so
+
+
 # IPA
 vendor/firmware/ipa_fws.b00
 vendor/firmware/ipa_fws.b01
@@ -761,59 +776,33 @@ vendor/lib64/libvpplibrary.so
 vendor/lib64/libvpptestutils.so
 vendor/lib64/vendor.qti.hardware.vpp@1.1_vendor.so
 
-# Perf - from LA.UM.9.8.r1-02700-SDM710.0
-system_ext/etc/perf/wlc_model.tflite|83cf4df067bc14c78f31943f32bcaf6f32419125
-system_ext/lib/libqti-perfd-client_system.so|ddd72333c134bce0af0c77b4a46c671aa5e469f8
-system_ext/lib/libqti-util_system.so|2e6622dfe70c530bad9d4edbf11a403480b92a44
-system_ext/lib/libqti_performance.so|f2470a993511b5df21fd97b16ade8127a989aaf4
-system_ext/lib/vendor.qti.hardware.perf@2.0.so|98edd3e2a989be2eab4a240f2348978d23e66a94
-system_ext/lib/vendor.qti.hardware.perf@2.1.so|496655cb33a6a32d8e3f58d70c1facf8565a788a
-system_ext/lib/vendor.qti.hardware.perf@2.2.so|9a3073b9bd62883bcf23c2c1653a03bfbab408b6
-system_ext/lib64/libqti-perfd-client_system.so|12c0d871c1acab96dc3310efd130cb59a69a8592
-system_ext/lib64/libqti-util_system.so|7b0ab1d36922c45b0dc34855ca2c73a13cc5a3df
-system_ext/lib64/libqti_performance.so|e2a7a488bbe1c3edfe16f9912f2fd5306855b9c8
-system_ext/lib64/vendor.qti.hardware.perf@2.0.so|72a36ce5f0d218b7150809280b52d1db44bfba8b
-system_ext/lib64/vendor.qti.hardware.perf@2.1.so|d5d5a1e6bbc2d6e44478330529a89619257bfbc6
-system_ext/lib64/vendor.qti.hardware.perf@2.2.so|a8df3ed7f434fb97f2c8e7877c1f90d5fc149fc4
-vendor/bin/hw/vendor.qti.hardware.perf@2.2-service|bcc0537ccf8e9c9b45c56d0f4b5da4064a5b6e4c
-vendor/bin/msm_irqbalance|c0910fb319bb8287f176f26078241299455baad0
-vendor/etc/init/vendor.qti.hardware.perf@2.2-service.rc|459b4c23550a56ac545f78c6d391f3d7dd9ba45b
-vendor/etc/perf/commonresourceconfigs.xml|827c63cb52552af0c19a4735430f98334e1760bf
-vendor/etc/perf/perfboostsconfig.xml|04c53be260bb060fa886a21e7e8111f3916efa1a
-vendor/etc/perf/perfconfigstore.xml|cdf858be0dbddc263f5e6f7b881d8d0cf84057b6
-vendor/etc/perf/targetconfig.xml|788ced0689fe95a42e881ea86f3aefc0b4b64042
-vendor/etc/perf/targetresourceconfigs.xml|a9c91a3b0ad715cae8c7ea78d5d47dc7fd7c22f9
-vendor/etc/powerhint.xml|7fb1e7940697bee374a2d322fdc09c3c52c79a37
-vendor/lib/libperfconfig.so|a6e5536fad3158e78696efbb8ed8eb0cb7815e16
-vendor/lib/libperfgluelayer.so|52cf265b9dab53f798c8c48c70eee763e9543085
-vendor/lib/libqti-perfd-client.so|1b0c70391d684ad95c79bc24ecb5ac8096d39019
-vendor/lib/libqti-perfd.so|1870851617af7e1f87c95bfe77d375ba3f05d3d0
-vendor/lib/libqti-util.so|e0e2823d1f2414b171ed72245a147fef2b6a4e69
-vendor/lib/libqti-utils.so|f0396512d699825cd405cd87f59b019ae05e3f81
-vendor/lib/vendor.qti.hardware.perf@2.0.so|81feb5db9c39a87394c9452909539de7cf9de0bd
-vendor/lib/vendor.qti.hardware.perf@2.1.so|c7c7088be2ad6c8050798c981b0abf3e3264b924
-vendor/lib/vendor.qti.hardware.perf@2.2.so|6452c97202a60759849cd19fb870a470f164ddbf
-vendor/lib64/libadaptlaunch.so|f63d64f33d118bc099bbd0415f987ad896a71e76
-vendor/lib64/liblearningmodule.so|6f54dc6234d3cf6ccf5971c9748d2178ad087ea6
-vendor/lib64/libmeters-ns.so|05a4e9661d9b727db7622ad6c8460ff305556a65
-vendor/lib64/libmeters.so|d5c9a4605bd2f631d6b0eb3c3cbb1f5fb8629114
-vendor/lib64/libperfconfig.so|7c11b2e9ca8e93f0cc45ed73e57a8ec5829b082b
-vendor/lib64/libperfgluelayer.so|77c14d1868b52f759f122441b5df7e5fe1e278e1
-vendor/lib64/libqti-perfd-client.so|d6502c16ab4dd7642641b6a8cbb061847ff5cb2d
-vendor/lib64/libqti-perfd.so|22ae99db39f1be4d3602c657bb7a5d96457f02d8
-vendor/lib64/libqti-util.so|003df67dcd57aaa67b7e80ad2640555dcebe5287
-vendor/lib64/libqti-utils.so|e734331e086c9b78852871312429ce69092775ca
-vendor/lib64/vendor.qti.hardware.perf@2.0.so|72b78413ee1d6fbfb38c58942d224c7f8f0cf00b
-vendor/lib64/vendor.qti.hardware.perf@2.1.so|65a22320eace1f7781510de4c7f21185773c7fc3
-vendor/lib64/vendor.qti.hardware.perf@2.2.so|9504a8618f79ceba7f4dad838c80f8804210a806
-
-# IOP - from LA.UM.9.8.r1-02700-SDM710.0
-vendor/lib/libqti-iopd-client.so|89ce02457de1e93a4ef0a3b20f27042350f1c6ac
-vendor/lib/vendor.qti.hardware.iop@1.0.so|ed1c0d67a740e95d5b2c37265ccaae3723c08941
-vendor/lib/vendor.qti.hardware.iop@2.0.so|b9339c98fc47f050e5288d5b27e09d274531206d
-vendor/lib64/libqti-iopd-client.so|512e12a6a86eb2dc5ad73a590c996d0e67e2ec1a
-vendor/lib64/vendor.qti.hardware.iop@1.0.so|68b541490d75f1bedd6ebae09ce5e0d5bf563890
-vendor/lib64/vendor.qti.hardware.iop@2.0.so|9ebadf4f9ac445fa0a767d33d1fe1cd6d64d9190
+# Perf - from dipper MIUI V11.0.4.0 Global
+vendor/bin/hw/vendor.qti.hardware.perf@2.0-service|d9778adf5448592796d6b2f201fe83e2ab2347aa
+vendor/etc/init/vendor.qti.hardware.perf@2.0-service.rc|0101a3294311c2988060a00f7b25d8abf2f428f9
+vendor/etc/perf/commonresourceconfigs.xml|20f4ccc21170c43ea922d9b7936d9e6823c83fa1
+vendor/etc/perf/perf-profile0.conf|02204355bf29ceb0460cd53e6716552bb9d9b05f
+vendor/etc/perf/perf-profile1.conf|4056b772f2790ffd2f466275be8f03e4a796b55c
+vendor/etc/perf/perf-profile2.conf|66ac3877bf0030b72c99107f665bb392538d0237
+vendor/etc/perf/perf-profile3.conf|91fc5322ecee2985f128049b0d44e2bee0b3be78
+vendor/etc/perf/perf-profile4.conf|8cb4e9a968ae7e8918be60f10ea55da89b640d99
+vendor/etc/perf/perf-profile5.conf|e2352fb4d9a1ea711b476df58c762f74c959e2c1
+vendor/etc/perf/perf-profile6.conf|910a193b8425bbe0080f746d6788e66986b2e762
+vendor/etc/perf/perfboostsconfig.xml|dbdbd6285c2d8c24b8bd02000d36ede65b0f296e
+vendor/etc/perf/perfconfigstore.xml|c58788a418ff5ef7dac0799c7d31f8fe4fe32024
+vendor/etc/perf/targetconfig.xml|5c81c22e06c6a0fc77e4f39efb4f7034f7bf5a3f
+vendor/etc/perf/targetresourceconfigs.xml|ab576578f1bcb02115b8a30d4a109d660d2e6fb6
+vendor/lib64/libperfconfig.so|5f4de3110d0d8a51cc9ae4dc9dc2b8fc3ffc0352
+vendor/lib64/libperfgluelayer.so|e3db0526cdbb65323deef72e28286ae67420a214
+vendor/lib64/libqti-perfd-client.so|941da516c48d801041ee229f9b87c809c7969aae
+vendor/lib64/libqti-perfd.so|8cf8d0a63f2a11a2343da02dad1ad7f5aea21038
+vendor/lib64/libqti-util.so|a8d68967fedf87d569b15d30b93f814f152f9fe7
+vendor/lib64/vendor.qti.hardware.perf@2.0.so|5126e4795575b543c133af640e806de3310c5079
+vendor/lib/libperfconfig.so|ad4ec058dc01379261169eca8c2ef0804d840587
+vendor/lib/libperfgluelayer.so|14e68d060569044a6fd64789b1cfb445f96f8694
+vendor/lib/libqti-perfd-client.so|2f641bf0ef4a989b432654cfe7a9faf68c160fdd
+vendor/lib/libqti-perfd.so|4cf1c68f835c20bf4370e56afa668f8228f79c97
+vendor/lib/libqti-util.so|21b1b42479fd3ac85c2eb32f8c09f227a7a84e6b
+vendor/lib/vendor.qti.hardware.perf@2.0.so|9d87d7cfd5c1a252a930b4d21cd06705146c746b
 
 # Peripheral manager
 vendor/bin/pm-proxy
@@ -821,19 +810,9 @@ vendor/bin/pm-service
 vendor/lib/libperipheral_client.so
 vendor/lib64/libperipheral_client.so
 
-# Power - from LA.UM.9.8.r1-02700-SDM710.0
-vendor/lib/hw/power.qcom.so|ad4c08f36aa361264a14a827729a69ac43f27178
-vendor/lib64/hw/power.qcom.so|70586129997818010368db285caf6537aa571edc
-
-# ESE-Powermanager - from LA.UM.9.8.r1-02700-SDM710.0
-vendor/bin/hw/vendor.qti.esepowermanager@1.1-service|0de9474912b1206cfe17459afca9ebb28bdd2468
-vendor/etc/init/vendor.qti.esepowermanager@1.1-service.rc|3c024c7135ec3dd8658624509ee61396a74f1ede
-vendor/lib/hw/vendor.qti.esepowermanager@1.1-impl.so|7f5adb335d12659d76fa13318b635e30ee67da6e
-vendor/lib/vendor.qti.esepowermanager@1.0.so|d94fecf1aaca02a2d284ef9b08c4dce9524cd09f
-vendor/lib/vendor.qti.esepowermanager@1.1.so|a4a91c715665496f44ca27f046865d4ec5c99dfb
-vendor/lib64/hw/vendor.qti.esepowermanager@1.1-impl.so|17f648402c874e4f981caadd91438a525089e35d
-vendor/lib64/vendor.qti.esepowermanager@1.0.so|956996730bcb6207c06f37b156bfd9d24db43034
-vendor/lib64/vendor.qti.esepowermanager@1.1.so|8b97297a7d728e37eb7c4da3d0cb8509911fea3b
+# Power
+vendor/lib/hw/power.qcom.so
+vendor/lib64/hw/power.qcom.so
 
 # QMI
 vendor/bin/irsc_util
@@ -940,48 +919,36 @@ etc/sensors/proto/sns_tilt_to_wake.proto
 etc/sensors/proto/sns_timer.proto
 etc/sensors/proto/sns_ultra_violet.proto
 etc/sensors/proto/sns_wrist_tilt_gesture.proto
-vendor/bin/mz_sensor_test
+lib/libqti-util_system.so
+lib/libsensorslog.so
+lib/libsns_low_lat_stream_stub.so
+lib/libsnsdiaglog.so
+lib/libssc.so
+lib64/libqti-util_system.so
+lib64/libsensorslog.so
+lib64/libsns_low_lat_stream_stub.so
+lib64/libsnsdiaglog.so
+lib64/libssc.so
 vendor/bin/sensors.qcom
-
-# Sensor - from polaris - Xiaomi/polaris/polaris:10/QKQ1.190828.002/V12.0.2.0.QDGCNXM:user/release-keys
-lib/libqti-util_system.so|13a704a0764c34491fe8bba941e191420e19f28d
-lib/libsensorslog.so|01d495500eb87d1d18df10b5218fdfb2817def72
-lib/libsns_fastRPC_util.so|51d726c01c126c958d7435225c796d6cfae4c8ff
-lib/libsns_low_lat_stream_stub.so|08a30ca05b41099a0bfdcf975fac08e957255ef3
-lib/libsnsdiaglog.so|10cb01a78079ad3075b61037be54150ed6123cec
-lib/libssc.so|3d9b8ceba6db619ca2d90eec1d156bd158c7bfd4
-lib64/libqti-util_system.so|6fddc9c23630206c7b5acbbdfcf5e51e7bced2aa
-lib64/libsensorslog.so|a099fd7049045d94566b3116eed85d05ea825fe9
-lib64/libsns_fastRPC_util.so|1b4528831fc67644399677dc077f86aa66a35be4
-lib64/libsns_low_lat_stream_stub.so|2dd71cc92bbd357f4dfba80202c313b2bdbee1df
-lib64/libsnsdiaglog.so|eecdcd12810af50766488ffa46b769edef19837b
-lib64/libssc.so|1849439c4d830cece010f498c6c11a674618a1aa
-vendor/etc/sap.conf|a671b9cbd68f8f6b7946f6c4e93d7df4b3f733a1
-vendor/etc/sensors/hals.conf|3a4016f373a0df8ce9d7c6cc6e363238d946e6f6
-vendor/lib/libsdsprpc.so|e361c5f4c40b48d56b40b8d3acdbe9ff4f22a592
-vendor/lib/libsensorcal.so|17528e7c9373868aca4f147d3b64169e8c83cb25
-vendor/lib/libsensorslog.so|c96450e637d87e74874d42bc00f3ea65e37e610b
-vendor/lib/libsns_fastRPC_util.so|1ac51d721f154ce2a37f698f6f247fc25ab23bbd
-vendor/lib/libsns_low_lat_stream_stub.so|fd2a9d7a230b94ef9108bca77f70180ba5b88351
-vendor/lib/libsnsdiaglog.so|758a09633fe4e7111d741a9363512b467734f93f
-vendor/lib/libssc.so|8d16ab0a7b9c7cc64d3ecb7106010be4e8df388b
-vendor/lib/libssc_default_listener.so|427f9ee8f32add8da7c0fd81c7d18634d4ebe4ad
-vendor/lib/libultrasound.so|d74878017770eea3ec19c4f935419916eff3573f
-vendor/lib/sensors.ssc.so|0d9399f14ca3cd4bb93c5668cc4550d39d39f122
-vendor/lib/sensors.touch.so|ccce86440cc4c65dd8234ae7ad1989055c470133
-vendor/lib64/libnotifyaudiohal.so|d89c4632d163aad20597ef8862fd482406d35638
-vendor/lib64/libsdsprpc.so|133fef6eaa4af0988a9d4c78af235c1cd9e72c32
-vendor/lib64/libsensorcal.so|8dff4045a5ebe034fa97d1e955f4d054d9e86717
-vendor/lib64/libsensorslog.so|cfaebc819d84b39ee8b06de01117f3ce99c39dea
-vendor/lib64/libsns_fastRPC_util.so|201936343044a279b5068f9ff3a1b1a8a96a4cc8
-vendor/lib64/libsns_low_lat_stream_stub.so|4b06d6f93bc2937aa9777413924ca9d015b6f422
-vendor/lib64/libsnsdiaglog.so|8edca429903d04cb05787d50509ffe42d0b155f8
-vendor/lib64/libssc.so|af32ee5edad26546f7e40d41357516d1f6bb9507
-vendor/lib64/libssc_default_listener.so|5adc6190063a5b721b216109ca58b18c059733b7
-vendor/lib64/libultrasound.so|d8ea6322259b13376c4676274f667340f80b0bd4
-vendor/lib64/sensors.elliptic.so|c2f785abbd4e6d4002a8fed21f2da9a2c582359c
-vendor/lib64/sensors.ssc.so|3198cc1b606d5d51e64c92b64ffa3439232c013c
-vendor/lib64/sensors.touch.so|1f31e2d13a775de0f27b6b08e6e18ab6bc22067a
+vendor/bin/mz_sensor_test
+vendor/etc/sap.conf
+vendor/etc/sensors/hals.conf
+vendor/lib/libsdsprpc.so
+vendor/lib/libsensorcal.so
+vendor/lib/libsensorslog.so
+vendor/lib/libsns_low_lat_stream_stub.so
+vendor/lib/libsnsdiaglog.so
+vendor/lib/libssc.so
+vendor/lib/libssc_default_listener.so
+vendor/lib/sensors.ssc.so
+vendor/lib64/libsdsprpc.so
+vendor/lib64/libsensorcal.so
+vendor/lib64/libsensorslog.so
+vendor/lib64/libsns_low_lat_stream_stub.so
+vendor/lib64/libsnsdiaglog.so
+vendor/lib64/libssc.so
+vendor/lib64/libssc_default_listener.so
+vendor/lib64/sensors.ssc.so
 
 # QTI Sensors Calibrate
 product/lib64/vendor.qti.hardware.sensorscalibrate@1.0.so
@@ -1046,13 +1013,6 @@ vendor/lib/vendor.qti.hardware.fm@1.0_vendor.so
 vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.fm@1.0_vendor.so
 
-# Protobuf - from LA.UM.9.8.r1-02700-SDM710.0
-vendor/lib/libprotobuf-cpp-full-vendor-3.9.1.so|df4adf12c0dff2fcea799022fb65d7971e40267c
-vendor/lib/libprotobuf-cpp-full-3.9.1.so|212dc220a1c115eccb1442560eb402e0cd97c8bc
-vendor/lib/libprotobuf-cpp-lite-3.9.1.so|ed88658c33170ce6aec118977955ab884f834a49
-vendor/lib64/libprotobuf-cpp-full-vendor-3.9.1.so|4d2bd210c601ba69fa7d5f0f2ab491da362ebef1
-vendor/lib64/libprotobuf-cpp-full-3.9.1.so|521fd2f75afe8adfff00cb3ce8e3c39e60fd7bee
-vendor/lib64/libprotobuf-cpp-lite-3.9.1.so|9daa7d0c70314917c1563941baed85cfc93e9ba4
 
 # Bluetooth (aptX) - from crosshatch - QP1A.190711.020
 product/lib64/libaptX_encoder.so|df1c89d7af1bb35808d5fe3496b04ba066c10cbc
@@ -1131,13 +1091,12 @@ vendor/lib64/libxml.so|2140e0162f3d0e510ed7fc38562a41531dc6822d
 vendor/lib64/vendor.qti.data.factory@1.0.so|314b14978c4e058b141791533f79fc77cfb49fd7
 vendor/lib64/vendor.qti.hardware.data.latency@1.0.so|6553299b19ba8609051ce00b30f8c716ff9cc424
 
-# DRM - Widevine - from OnePlus8Pro - OnePlus/OnePlus8Pro/OnePlus8Pro:11/RP1A.201005.001/2011190108:user/release-keys
--vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.3-service.widevine.xml|ebebcf8f367641480cf7d512fc06e6ab777527be
-vendor/bin/hw/android.hardware.drm@1.3-service.widevine|5aa424e97e92659be37cb2dad0de363aa6ef857f
-vendor/etc/init/android.hardware.drm@1.3-service.widevine.rc|c35e1a6f9a6faff19064a81e07c4be82ceaf4bb5
-vendor/lib/mediadrm/libwvdrmengine.so|edfddb82e327b36dd6e310c6e7d56e42b1c4285e
-vendor/lib64/mediadrm/libwvdrmengine.so|ba68955bfe7ecb950426a1607a472fa381740c6b
-vendor/lib64/libwvhidl.so|232637b49d6035f3a3eeae4d133c56388ad37b27
+# DRM - Widevine - from Z01R - WW_Z01R-WW_user_100.10.107.87_20200520-user-20200520
+vendor/bin/hw/android.hardware.drm@1.2-service.widevine|589e5e684ebf42372575d78d97daba3b11c8702b
+vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc|e3cb732c0bd519988100675edf385d947abf5f6c
+vendor/lib/mediadrm/libwvdrmengine.so|f6154290c2c682e624bd59616fd6a4a5f10b6df5
+vendor/lib64/mediadrm/libwvdrmengine.so|d23ca9491a7ebde623f238b87c5fe6dfb62a0cc7
+vendor/lib64/libwvhidl.so|74e8fd5901adc185eee38fa3eb80c961809e90fb
 
 # GPS - from beryllium - Xiaomi/beryllium/beryllium:10/QKQ1.190828.002/V11.0.9.0.QEJMIXM:user/release-keys
 vendor/bin/garden_app|15d74fbdbc44579e1766c9ac252cc5cca7c7584c
@@ -1149,8 +1108,8 @@ vendor/bin/xtra-daemon|73d24d8e31a65fb1f1d1bb99be807e1adcf71af4
 vendor/bin/xtwifi-client|108345808fa39a854c5c87c2b577df37e5fd569f
 vendor/bin/xtwifi-inet-agent|2f282878b0fdfd5e2f8c1c6e63798ea355606cf9
 vendor/etc/init/android.hardware.gnss@2.0-service-qti.rc|488262f63723c789ea9aaed1d63ce32ff8075a15
--vendor/etc/vintf/manifest/android.hardware.gnss@2.0-service-qti.xml|8d7eafd68db9bbe7ec7a5c4d547f026869766081
--vendor/etc/vintf/manifest/vendor.qti.gnss@3.0-service.xml|9b2f6691d6c224bcb9ab9a0d57adfb9e52f1b53e
+vendor/etc/vintf/manifest/android.hardware.gnss@2.0-service-qti.xml|8d7eafd68db9bbe7ec7a5c4d547f026869766081
+vendor/etc/vintf/manifest/vendor.qti.gnss@3.0-service.xml|9b2f6691d6c224bcb9ab9a0d57adfb9e52f1b53e
 vendor/lib64/hw/android.hardware.gnss@2.0-impl-qti.so|85098a3429dcc0943aea87d76f112f4bdd4361ff
 vendor/lib64/hw/vendor.qti.gnss@3.0-impl.so|892bfd81ae1974e915e643b47a4ffea7f83a20ad
 vendor/lib64/libbatching.so|70db2821a161c2250b45bca62b75c7a45546d6fe
@@ -1405,6 +1364,24 @@ vendor/lib64/vendor.qti.hardware.radio.ims@1.3.so|570885496129617ffa6ccc7429d28b
 vendor/lib64/vendor.qti.ims.callinfo@1.0.so|4e604aa0a5b5ecfff2f5e89d4648ba80fbe235ce
 vendor/lib64/vendor.qti.imsrtpservice@1.0-service-Impl.so|02687b699db4e1b5b1881990751e2cb7f514b191
 vendor/lib64/vendor.qti.imsrtpservice@1.0.so|94b925c260b16852f7dc2ff20cbd12003cfb66ec
+
+# Protobuf - from LA.UM.9.8.r1-02700-SDM710.0
+vendor/lib/libprotobuf-cpp-full-vendor-3.9.1.so|df4adf12c0dff2fcea799022fb65d7971e40267c
+vendor/lib/libprotobuf-cpp-full-3.9.1.so|212dc220a1c115eccb1442560eb402e0cd97c8bc
+vendor/lib/libprotobuf-cpp-lite-3.9.1.so|ed88658c33170ce6aec118977955ab884f834a49
+vendor/lib64/libprotobuf-cpp-full-vendor-3.9.1.so|4d2bd210c601ba69fa7d5f0f2ab491da362ebef1
+vendor/lib64/libprotobuf-cpp-full-3.9.1.so|521fd2f75afe8adfff00cb3ce8e3c39e60fd7bee
+vendor/lib64/libprotobuf-cpp-lite-3.9.1.so|9daa7d0c70314917c1563941baed85cfc93e9ba4
+
+# ESE-Powermanager - from LA.UM.9.8.r1-02700-SDM710.0
+vendor/bin/hw/vendor.qti.esepowermanager@1.1-service|0de9474912b1206cfe17459afca9ebb28bdd2468
+vendor/etc/init/vendor.qti.esepowermanager@1.1-service.rc|3c024c7135ec3dd8658624509ee61396a74f1ede
+vendor/lib/hw/vendor.qti.esepowermanager@1.1-impl.so|7f5adb335d12659d76fa13318b635e30ee67da6e
+vendor/lib/vendor.qti.esepowermanager@1.0.so|d94fecf1aaca02a2d284ef9b08c4dce9524cd09f
+vendor/lib/vendor.qti.esepowermanager@1.1.so|a4a91c715665496f44ca27f046865d4ec5c99dfb
+vendor/lib64/hw/vendor.qti.esepowermanager@1.1-impl.so|17f648402c874e4f981caadd91438a525089e35d
+vendor/lib64/vendor.qti.esepowermanager@1.0.so|956996730bcb6207c06f37b156bfd9d24db43034
+vendor/lib64/vendor.qti.esepowermanager@1.1.so|8b97297a7d728e37eb7c4da3d0cb8509911fea3b
 
 # MotoDolbyV3
 -app/MotoDolbyV3/MotoDolbyV3.apk
