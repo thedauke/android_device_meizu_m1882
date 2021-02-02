@@ -1,6 +1,5 @@
 /*
  * Copyright (C) 2019 The LineageOS Project
- * Copyright (C) 2020 The MoKee Open Source Project
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -16,8 +15,8 @@
 using android::hardware::configureRpcThreadpool;
 using android::hardware::joinRpcThreadpool;
 
-using vendor::lineage::biometrics::fingerprint::inscreen::V1_0::IFingerprintInscreen;
-using vendor::lineage::biometrics::fingerprint::inscreen::V1_0::implementation::FingerprintInscreen;
+using vendor::lineage::biometrics::fingerprint::inscreen::V1_1::IFingerprintInscreen;
+using vendor::lineage::biometrics::fingerprint::inscreen::V1_1::implementation::FingerprintInscreen;
 
 using android::OK;
 using android::status_t;
