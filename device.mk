@@ -8,11 +8,7 @@ $(call inherit-product, vendor/meizu/m1882/m1882-vendor.mk)
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-lineage 
-
-# Properties
--include $(LOCAL_PATH)/vendor_prop.mk
+    $(LOCAL_PATH)/overlay
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -90,7 +86,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libshim_camera \
     android.hardware.camera.provider@2.4-impl \
-    android.hardware.camera.provider@2.4-service
+    android.hardware.camera.provider@2.4-service \
+    Snap
 
 # Charger
 PRODUCT_COPY_FILES += \
@@ -152,7 +149,9 @@ PRODUCT_COPY_FILES += \
 
 # HIDL
 PRODUCT_PACKAGES += \
-    android.hidl.base@1.0
+    android.hidl.base@1.0 \
+    libhidltransport \
+    libhwbinder
 
 # Init
 PRODUCT_COPY_FILES += \
@@ -204,7 +203,11 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.2-service-qti
+    android.hardware.power-service-qti
+
+# Powerhint
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
 
 # QCOM
 PRODUCT_COPY_FILES += \
@@ -240,8 +243,9 @@ PRODUCT_COPY_FILES += \
 
 # Sensors
 PRODUCT_PACKAGES += \
-    android.hardware.sensors@1.0-service.m1882 \
-    libsensorndkbridge
+    libsensorndkbridge \
+    android.hardware.sensors@1.0-impl \
+    android.hardware.sensors@1.0-service
 
 # Telephony
 PRODUCT_PACKAGES += \
@@ -271,7 +275,12 @@ PRODUCT_PACKAGES += \
 
 # VNDK-SP
 PRODUCT_PACKAGES += \
-    vndk-sp
+    vndk-sp \
+    com.android.vndk.current.on_vendor
+
+# QTI SensorsCalibrate HAL load with VNDK 28 libbase
+PRODUCT_COPY_FILES += \
+    prebuilts/vndk/v28/arm64/arch-arm64-armv8-a/shared/vndk-sp/libbase.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libbv28.so
 
 # Wi-Fi
 PRODUCT_PACKAGES += \

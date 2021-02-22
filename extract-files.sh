@@ -60,6 +60,18 @@ if [ -z "${SRC}" ]; then
     SRC=adb
 fi
 
+function blob_fixup() {
+    case "${1}" in
+	vendor/lib64/hw/vendor.qti.hardware.sensorscalibrate@1.0-impl.so)
+        sed -i "s|libbase.so|libbv28.so|g" "${2}"
+        ;;
+
+	vendor/lib/hw/camera.qcom.so)
+        sed -i "s|libssc.so|libSSc.so|g" "${2}"
+        ;;
+    esac
+}
+
 # Initialize the helper
 setup_vendor "${DEVICE}" "${VENDOR}" "${RR_ROOT}" false "${CLEAN_VENDOR}"
 

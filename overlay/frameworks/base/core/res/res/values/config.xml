@@ -173,27 +173,28 @@
          than the size of the config_autoBrightnessLevels array.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>5</item>
-        <item>10</item>
-        <item>16</item>
-        <item>25</item>
-        <item>35</item>
-        <item>45</item>
-        <item>60</item>
-        <item>80</item>
-        <item>100</item>
-        <item>125</item>
-        <item>155</item>
-        <item>170</item>
-        <item>200</item>
-        <item>225</item>
-        <item>285</item>
-        <item>340</item>
-        <item>425</item>
-        <item>500</item>
-        <item>1000</item>
-        <item>2000</item>
-        <item>3000</item>
+        <item>5</item>   <!-- 0-3 -->
+        <item>11</item>   <!-- 3-8 -->
+        <item>16</item>   <!-- 8-15 -->
+        <item>27</item>   <!-- 15-25 -->
+        <item>37</item>   <!-- 25-35 -->
+        <item>47</item>   <!-- 35-45 -->
+        <item>59</item>   <!-- 45-60 -->
+        <item>71</item>   <!-- 60-80 -->
+        <item>85</item>   <!-- 80-100 -->
+        <item>102</item>   <!-- 100-125 -->
+        <item>120</item>   <!-- 125-155 -->
+        <item>150</item>   <!-- 155-170 -->
+        <item>175</item>   <!-- 170-200 -->
+        <item>205</item>   <!-- 200-225 -->
+        <item>255</item>   <!-- 225-285 -->
+        <item>310</item>   <!-- 285-340 -->
+        <item>370</item>   <!-- 340-425 -->
+        <item>495</item>   <!-- 425-500 -->
+        <item>590</item>   <!-- 500-1000 -->
+        <item>700</item>   <!-- 1000-2000 -->
+        <item>850</item>  <!-- 2000-3000 -->
+        <item>1023</item>  <!-- 3000+ -->
     </integer-array>
 
     <!-- MMS user agent string -->
@@ -374,33 +375,31 @@
 
                           <!-- doze & AOD -->
 
-    <!-- Screen brightness when dozing. 
+    <!-- Screen brightness when dozing. -->
     <integer name="config_screenBrightnessDoze">50</integer>   
--->    
-    <!-- Enable doze mode 
+    
+    <!-- Enable doze mode -->
     <string name="config_dozeComponent">com.android.systemui/com.android.systemui.doze.DozeService</string>
--->
+  
     <!-- If true, the doze component is not started until after the screen has been
          turned off and the screen off animation has been performed. -->
-    <bool name="config_dozeAfterScreenOffByDefault">false</bool>
+    <bool name="config_dozeAfterScreenOffByDefault">true</bool>
 
     <!-- Control whether the always on display mode is available. This should only be enabled on
          devices where the display has been tuned to be power efficient in DOZE and/or DOZE_SUSPEND
          states. -->
-    <bool name="config_dozeAlwaysOnDisplayAvailable">false</bool>
+    <bool name="config_dozeAlwaysOnDisplayAvailable">fasle</bool>
 
     <!-- Control whether the always on display mode is enabled by default. This value will be used
          during initialization when the setting is still null. -->
-    <bool name="config_dozeAlwaysOnEnabled">false</bool>
+    <bool name="config_dozeAlwaysOnEnabled">true</bool>
 
-    <!-- Whether the display blanks itself when transitioning from a doze to a non-doze state 
-    <bool name="config_displayBlanksAfterDoze">true</bool>
--->
+    <!-- Whether the display blanks itself when transitioning from a doze to a non-doze state -->
+    <bool name="config_displayBlanksAfterDoze">false</bool>
 
     <!-- True if the display hardware only has brightness buckets rather than a full range of
-         backlight values 
-    <bool name="config_displayBrightnessBucketsInDoze">true</bool>
--->
+         backlight values -->
+    <bool name="config_displayBrightnessBucketsInDoze">false</bool>
 
     <!-- Power Management: Specifies whether to decouple the auto-suspend state of the
          device from the display on/off state.
@@ -440,7 +439,7 @@
     <!-- Whether device supports sensor based doze customizations -->
     <bool name="config_dozePulsePickup">true</bool>
     <bool name="config_dozePulseTilt">true</bool>
-    <bool name="config_dozePulseProximity">true</bool>
+    <bool name="config_dozePulseProximity">true</bool> 
 
                            <!-- Some overlay from Lineage -->
 
@@ -499,7 +498,7 @@
                      <!-- PE stuff -->
 
     <!-- Flag indicating whether we should enable the adaptive sleep.-->
-    <bool name="config_adaptive_sleep_available">true</bool>
+          <bool name="config_adaptive_sleep_available">true</bool>
 
     <!-- Whether WiFi display is supported by this device.
          There are many prerequisites for this feature to work correctly.
@@ -587,8 +586,37 @@
          available on some devices. -->
     <bool name="config_enableHapticTextHandle">true</bool>
 
-    <integer name="config_defaultHapticFeedbackIntensity">4</integer>
-    <integer name="config_defaultNotificationVibrationIntensity">4</integer>
-    <integer name="config_defaultRingVibrationIntensity">4</integer>
+    <!-- Keep chosen default camera app pinned in memory for faster launching -->
+    <bool name="config_pinnerCameraApp">true</bool>
+    
+    <!-- Default list of files pinned by the Pinner Service -->
+    <string-array translatable="false" name="config_defaultPinnerServiceFiles">
+        <item>"/system/framework/arm64/boot-framework.oat"</item>
+        <item>"/system/framework/framework.jar"</item>
+        <item>"/system/framework/oat/arm64/services.odex"</item>
+        <item>"/system/framework/services.jar"</item>
+        <item>"/apex/com.android.media/javalib/updatable-media.jar"</item>
+        <item>"/product/priv-app/SystemUI/SystemUI.apk"</item>
+        <item>"/product/priv-app/SystemUI/oat/arm64/SystemUI.odex"</item>
+        <item>"/system/lib64/libRS.so"</item>
+        <item>"/system/lib64/libRSCpuRef.so"</item>
+        <item>"/system/lib64/libRSDriver.so"</item>
+        <item>"/system/lib64/libRS_internal.so"</item>
+        <item>"/system/lib64/libRScpp.so"</item>
+        <item>"/system/lib64/libbcinfo.so"</item>
+        <item>"/system/lib64/libblas.so"</item>
+        <item>"/system/lib64/libsurfaceflinger.so"</item>
+    </string-array>
+
+    <!-- Should the pinner service pin the Home application? -->
+    <bool name="config_pinnerHomeApp">true</bool>
+    
+    <!-- List of files pinned by the Pinner Service with the apex boot image b/119800099 -->
+    <string-array translatable="false" name="config_apexBootImagePinnerServiceFiles">
+        <item>"/system/framework/framework.jar"</item>
+        <item>"/system/framework/services.jar"</item>
+        <item>"/apex/com.android.media/javalib/updatable-media.jar"</item>
+        <item>"/system/lib64/libsurfaceflinger.so"</item>
+    </string-array>
 
 </resources>

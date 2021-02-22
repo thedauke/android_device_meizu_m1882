@@ -24,6 +24,17 @@ BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
 WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
 OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+<hal format="hidl">
+        <name>android.hardware.power</name>
+        <transport>hwbinder</transport>
+        <version>1.2</version>
+        <interface>
+            <name>IPower</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+
 -->
 <manifest version="1.0" type="device" target-level="2">
     <hal format="hidl">
@@ -103,8 +114,8 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         </interface>
         <fqname>@1.2::ICryptoFactory/clearkey</fqname>
         <fqname>@1.2::IDrmFactory/clearkey</fqname>
-        <fqname>@1.1::ICryptoFactory/widevine</fqname>
-        <fqname>@1.1::IDrmFactory/widevine</fqname>
+        <fqname>@1.2::ICryptoFactory/widevine</fqname>
+        <fqname>@1.2::IDrmFactory/widevine</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.gatekeeper</name>
@@ -210,15 +221,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <interface>
             <name>IDevice</name>
             <instance>hvx</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
-        <name>android.hardware.power</name>
-        <transport>hwbinder</transport>
-        <version>1.2</version>
-        <interface>
-            <name>IPower</name>
-            <instance>default</instance>
         </interface>
     </hal>
     <hal format="hidl">
@@ -469,15 +471,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         </interface>
         <interface>
             <name>IGoodixFingerprintDaemonHbd</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.meizu.bsp.mzfacereco</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IFacerecoDaemon</name>
             <instance>default</instance>
         </interface>
     </hal>
